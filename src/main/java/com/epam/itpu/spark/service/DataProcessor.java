@@ -12,6 +12,7 @@ import org.apache.spark.sql.expressions.UserDefinedFunction;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
+import java.io.File;
 
 public class DataProcessor {
 
@@ -231,10 +232,30 @@ public class DataProcessor {
      * @param outputPath Output directory path
      */
     public void saveToCSV(Dataset<Row> df, String outputPath) {
+        // Delete output directory if it exists to avoid Spark overwrite errors
+        deleteDirectoryRecursively(new File(outputPath));
         df.write()
           .option("header", "true")
           .mode(SaveMode.Overwrite)
           .csv(outputPath);
+    }
+
+    /**
+     * Recursively delete a directory and its contents.
+     * @param file File or directory to delete
+     */
+    private void deleteDirectoryRecursively(File file) {
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+                if (files != null) {
+                    for (File f : files) {
+                        deleteDirectoryRecursively(f);
+                    }
+                }
+            }
+            file.delete();
+        }
     }
 
     /**
