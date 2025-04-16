@@ -1,7 +1,5 @@
-package com.epam.itpu.spark;
+package com.epam.itpu.streaming;
 
-import com.epam.itpu.spark.service.DataProcessor;
-import com.epam.itpu.spark.util.GeohashUtil;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.functions;
 import org.apache.spark.sql.streaming.StreamingQuery;
@@ -10,6 +8,9 @@ import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.epam.itpu.streaming.service.DataProcessor;
+import com.epam.itpu.streaming.util.GeohashUtil;
 
 import java.util.concurrent.TimeoutException;
 

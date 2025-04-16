@@ -1,4 +1,4 @@
-package com.epam.itpu.spark.model;
+package com.epam.itpu.streaming.model;
 
 import java.io.Serializable;
 import java.sql.Date;

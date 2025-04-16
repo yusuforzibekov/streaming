@@ -1,4 +1,4 @@
-package com.epam.itpu.spark.util;
+package com.epam.itpu.streaming.util;
 
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.api.java.UDF2;

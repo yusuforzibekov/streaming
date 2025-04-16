@@ -1,10 +1,12 @@
-package com.epam.itpu.spark.service;
+package com.epam.itpu.streaming.service;
 
-import com.epam.itpu.spark.util.GeohashUtil;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.expressions.Window;
 import org.apache.spark.sql.expressions.WindowSpec;
 import org.apache.spark.sql.types.DataTypes;
+
+import com.epam.itpu.streaming.util.GeohashUtil;
+
 import org.apache.spark.sql.streaming.StreamingQuery;
 import static org.apache.spark.sql.functions.*;
 import org.apache.spark.sql.expressions.UserDefinedFunction;
